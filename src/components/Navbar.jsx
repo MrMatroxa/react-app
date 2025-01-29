@@ -1,5 +1,6 @@
 import styles from "./Navbar.module.css";
 import logo from "../assets/logo.png";
+
 export default function Navbar() {
   return (
     <nav className={styles.navbar}>
