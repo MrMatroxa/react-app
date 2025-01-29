@@ -1,0 +1,19 @@
+.listItem {
+    display: flex;
+    align-items: center;
+    margin: 1em;
+}
+
+.listItem img {
+    width: 1.5em;
+    margin-right: 1em;
+}
+
+.listItem button {
+    background-color: rgb(153, 135, 252);
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    margin-right: 1em;
+}
