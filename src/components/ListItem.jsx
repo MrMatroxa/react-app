@@ -5,10 +5,10 @@ import no from '../assets/x.png';
 
 export default function ListItem({ item, onDelete }) {
   return (
-    <div className={styles.listItem}>
-      <button onClick={onDelete} className={styles.deleteButton}>Delete</button>
+    <div className={styles.listItem}  >
       <img src={item.completed ? yes : no} alt={item.completed ? "Completed" : "Not Completed"} />
       <p>Task: {item.task}</p>
+      <button onClick={onDelete} className={styles.deleteButton}>Delete</button>
     </div>
   );
 }

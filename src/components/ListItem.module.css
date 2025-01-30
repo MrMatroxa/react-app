@@ -1,7 +1,10 @@
 .listItem {
+
     display: flex;
+    justify-content:space-between;
     align-items: center;
     margin: 1em;
+    width: 35%;
 }
 
 .listItem img {
@@ -15,5 +18,17 @@
     border: none;
     padding: 0.5em 1em;
     border-radius: 5px;
-    margin-right: 1em;
+    margin-left: 1em;
+}
+
+.listItem p {
+    flex-grow: 1;
+    text-align: left;
+    margin: 0;
+    flex-shrink: 0; /* Prevent shrinking */
+    flex-basis: 0; /* Allow to grow */
+    padding: 0.5em; /* Add padding to create a box */
+    border: 1px solid #ccc; /* Optional: Add border to visualize the box */
+    background-color: #f9f9f9; /* Optional: Add background color */
+    width: 200px;
 }
