@@ -1,23 +1,23 @@
 import React, { useState } from "react";
-import data from "../assets/data.json";
 import styles from "./List.module.css";
 import ListItem from "./ListItem";
 
-export default function List() {
-  const [items, setItems] = useState(data);
+export default function List({ dataFromMyParent, sendToParent }) {
+  const [clickedIndex, setClickedIndex] = useState(null);
 
-  const handleDelete = (id) => {
-    setItems(items.filter((item) => item.id !== id));
+  const getData = (data) => {
+    setClickedIndex(data);
+    sendToParent(data);
   };
+
+  
+
+  console.log("clicked index state:", clickedIndex);
 
   return (
     <div className={styles.listContainer}>
-      {items.map((item) => (
-        <ListItem
-          key={item.id}
-          item={item}
-          onDelete={() => handleDelete(item.id)}
-        />
+      {dataFromMyParent.map((item) => (
+        <ListItem key={item.id} item={item} handleDelete={getData} />
       ))}
     </div>
   );
