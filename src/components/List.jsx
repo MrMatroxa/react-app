@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import styles from "./List.module.css";
 import ListItem from "./ListItem";
+import Form from "./Form";
+
+import { v4 as uuidv4 } from "uuid";
 
 export default function List({ dataFromMyParent, idOnDelete,  sendBack }) {
   const [items, setItems] = useState(dataFromMyParent);
@@ -29,8 +32,17 @@ export default function List({ dataFromMyParent, idOnDelete,  sendBack }) {
     idOnDelete(id);
   };
 
+  const toggleEdit = (id) => {
+    const updatedItems = items.map((item) =>
+      item.id === id ? { ...item, isEditing: !item.isEditing } : item
+    );
+    setItems(updatedItems);
+  };
+
   return (
+    <>
     <div className={styles.listContainer}>
+    <Form addItem={addNewItem} />
       {items.map((item) => (
         <ListItem
           key={item.id}
@@ -41,5 +53,8 @@ export default function List({ dataFromMyParent, idOnDelete,  sendBack }) {
         />
       ))}
     </div>
+    </>
   );
 }
+
+

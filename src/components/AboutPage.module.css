@@ -1,0 +1,35 @@
+.aboutPage {
+    line-height: 1.5;
+}
+.authors ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.authors li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 1em;
+  margin: 1em 0; /* Adjust the value to increase vertical spacing between list items */
+}
+.authors li > * {
+  display: flex;
+   
+  align-items: center;
+  margin-right: 0.5em; /* Adjust the value to increase vertical spacing between direct children of li */
+}
+
+.aboutPage a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.aboutPage img {
+  border-radius: 50%;
+  width: 7em;
+}
+
+article {
+    margin-bottom: 1em;
+}

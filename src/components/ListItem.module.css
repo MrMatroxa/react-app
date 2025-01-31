@@ -1,11 +1,9 @@
 .listItem {
-
     display: flex;
     justify-content:space-between;
     align-items: center;
-    margin: 1em;
-    width: 30em;
-    max-width: 100%;
+    margin: 1em 1em 1em 0;
+
 }
 
 .listItem img {
@@ -19,8 +17,9 @@
     border: none;
     padding: 0.5em 1em;
     border-radius: 5px;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 0.5em;
+    margin-right: 0;
+    cursor: pointer;
 }
 
 .listItemP {
@@ -33,7 +32,30 @@
     
 }
 
-a{
-    text-decoration: none;
-    color: rgb(67, 51, 67);
-}
+.form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .form input {
+    flex-grow: 1; /* Ensure the input takes up the same space as the p element */
+    margin: 0 1em; /* Adjust margin to match the p element */
+    padding: 0.5em; /* Add padding to create a box */
+    border: 1px solid #ccc; /* Optional: Add border to visualize the box */
+    background-color: #f9f9f9; /* Optional: Add background color */
+  }
+  
+  .form button {
+    background-color: rgb(153, 135, 252);
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    margin-left: 1em;
+    margin-right: 1em;
+    cursor: pointer;
+  }
+  

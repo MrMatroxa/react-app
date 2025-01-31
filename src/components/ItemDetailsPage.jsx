@@ -36,7 +36,7 @@ export default function ItemDetailsPage({dataFromMyParent}) {
             src={completed ? yes : no}
             alt={completed ? "Completed" : "Not Completed"}
             onClick={trueFalseToggle}
-            onClick={() => toggleCompletion(item.id)}
+            // onClick={() => toggleCompletion(item.id)}
           />
         </div>
       </div>

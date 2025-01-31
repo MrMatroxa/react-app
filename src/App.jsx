@@ -57,6 +57,14 @@ function App() {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
+      <div className="main-content">
+      <Routes>
+
+        <Route path="/" element={<List />} />
+        <Route path="/about" element={<AboutPage />} />
+
+      </Routes>
+      </div>
     </>
   );
 }
