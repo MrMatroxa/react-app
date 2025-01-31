@@ -21,8 +21,8 @@ export default function ItemDetailsPage({dataFromMyParent}) {
 
   return (
     <>
-        <div className={styles.itemDetails}>
-      <div>
+      <div className={styles.itemDetails}>
+        <div>
           <h1>Item Detailssss</h1>
           <p>
             <strong>Task:</strong> {item.task}
@@ -36,6 +36,7 @@ export default function ItemDetailsPage({dataFromMyParent}) {
             src={completed ? yes : no}
             alt={completed ? "Completed" : "Not Completed"}
             onClick={trueFalseToggle}
+            onClick={() => toggleCompletion(item.id)}
           />
         </div>
       </div>

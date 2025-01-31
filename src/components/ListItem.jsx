@@ -5,13 +5,13 @@ import no from '../assets/x.png';
 import { Link } from "react-router-dom";
 import {useState} from "react";
 
-export default function ListItem({ item,git }) {
-  
-
+export default function ListItem({ item, toggleCompletion, handleDelete, completed }) {
   return (
     <div className={styles.listItem}>
       <img
-      src={item.completed ? yes : no}
+        src={item.completed ? yes : no}
+        onClick={() => toggleCompletion(item.id)}
+        alt="Completion status"
       />
       <Link to={`/item/${item.id}`} className={styles.listItemP}>
         <p>Task: {item.task}</p>

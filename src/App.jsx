@@ -19,14 +19,19 @@ function App() {
 
   console.log("data copy:",dataCopy)
 
-  const getClickedIndex = (data) => {
-    console.log("last point index at parent:",data)
+  const handleDelete = (data) => {
+    console.log("id on delete:",data)
 
     setDataCopy((prevState)=> {
       return prevState.filter((eachEl)=> eachEl.id !== data)
     })
   }
 
+  const getAfterToggle = (afterToggle) => {
+    console.log("after toggle:",afterToggle)
+
+    setDataCopy(afterToggle)
+  }
   
 
   return (
@@ -35,8 +40,20 @@ function App() {
       {/* <Navbar /> */}
       <Sidebar />
       <Routes>
-        <Route path="/" element={<List dataFromMyParent={dataCopy} sendToParent={getClickedIndex} />} />
-        <Route path="/item/:id" element={<ItemDetailsPage dataFromMyParent={dataCopy} />} />
+        <Route
+          path="/"
+          element={
+            <List
+              dataFromMyParent={dataCopy}
+              idOnDelete={handleDelete}
+              sendBack={getAfterToggle}
+            />
+          }
+        />
+        <Route
+          path="/item/:id"
+          element={<ItemDetailsPage dataFromMyParent={dataCopy} />}
+        />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
