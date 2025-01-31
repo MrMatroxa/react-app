@@ -1,0 +1,28 @@
+.form {
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    max-width: 100%;
+}
+
+.form .input {
+  width: 82%;
+  padding: 0.7em;
+  margin: 1em 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+}
+
+.form .button {
+    background-color: rgb(43, 232, 125);
+    color: white;
+    border: none;
+    padding: 0.7em 1em;
+    margin: 0 0.5em; /* Add margin to align with Delete button */
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+}
