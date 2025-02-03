@@ -5,12 +5,11 @@ import Form from "./Form";
 
 import { v4 as uuidv4 } from "uuid";
 
-export default function List({ dataFromMyParent, idOnDelete, sendBack }) {
-  const [items, setItems] = useState(dataFromMyParent);
+export default function List({ dataCopy, setDataCopy, idOnDelete }) {
+  // const [items, setItems] = useState(dataCopy)
   const toggleCompletion = (id) => {
-    const itemsCopy = [...items];
-
-    const findIndex = items.findIndex((eachEl) => {
+    const itemsCopy = [...dataCopy];
+    const findIndex = dataCopy.findIndex((eachEl) => {
       return eachEl.id === id;
     });
 
@@ -20,24 +19,24 @@ export default function List({ dataFromMyParent, idOnDelete, sendBack }) {
       itemsCopy[findIndex].completed = true;
     }
 
-    setItems(itemsCopy);
-    sendBack(items);
+    setDataCopy(itemsCopy);
+    // sendBack(itemsCopy);
   };
 
   const addNewItem = (newItem) => {
-    const updatedItems = [...items, { id: uuidv4(), ...newItem }];
-    setItems(updatedItems);
+    const updatedItems = [...dataCopy, { id: uuidv4(), ...newItem }];
+    setDataCopy(updatedItems);
   };
 
   const handleEdit = (id, newText) => {
-    const updatedItems = items.map((item) =>
+    const updatedItems = dataCopy.map((item) =>
       item.id === id ? { ...item, task: newText, isEditing: false } : item
     );
-    setItems(updatedItems);
+    setDataCopy(updatedItems);
   };
 
   const handleDelete = (id) => {
-    setItems(items.filter((item) => item.id !== id));
+    setDataCopy(dataCopy.filter((item) => item.id !== id));
     idOnDelete(id);
   };
 
@@ -49,16 +48,16 @@ export default function List({ dataFromMyParent, idOnDelete, sendBack }) {
   // };
 
   const toggleEdit = (id) => {
-    const updatedItems = items.map((item) =>
+    const updatedItems = dataCopy.map((item) =>
       item.id === id ? { ...item, isEditing: !item.isEditing } : item
     );
-    setItems(updatedItems);
+    setDataCopy(updatedItems);
   };
 
   return (
     <div className={styles.listContainer}>
       <Form addItem={addNewItem} />
-      {items.map((item) => (
+      {dataCopy.map((item) => (
         <ListItem
           key={item.id}
           item={item}

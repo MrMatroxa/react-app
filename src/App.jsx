@@ -3,7 +3,7 @@ import Footer from "./components/Footer";
 import List from "./components/List";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import ItemDetailsPage from "./components/ItemDetailsPage";
 import NotFoundPage from "./components/NotFoundPage";
 import AboutPage from "./components/AboutPage";
@@ -11,28 +11,17 @@ import data from "./assets/data.json";
 import { useState } from "react";
 
 function App() {
-  const location = useLocation().pathname;
   const [dataCopy, setDataCopy] = useState(data);
 
-  // console.log("data copy:",dataCopy)
-  // console.log("dataCopy:", dataCopy);
-
-  const handleDelete = (data) => {
+  const handleDelete = (id) => {
     setDataCopy((prevState) => {
-      return prevState.filter((eachEl) => eachEl.id !== data);
+      return prevState.filter((eachEl) => eachEl.id !== id);
     });
-  };
-
-  const getAfterToggle = (afterToggle) => {
-    console.log("after toggle:", afterToggle);
-
-    setDataCopy(afterToggle);
   };
 
   return (
     <>
-      {location !== "/notfound" && <Navbar />}
-      {/* <Navbar /> */}
+      <Navbar />
       <Sidebar />
       <div className="main-content">
         <Routes>
@@ -40,9 +29,9 @@ function App() {
             path="/"
             element={
               <List
-                dataFromMyParent={data}
+                dataCopy={dataCopy}
+                setDataCopy={setDataCopy}
                 idOnDelete={handleDelete}
-                sendBack={getAfterToggle}
               />
             }
           />
