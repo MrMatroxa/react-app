@@ -7,7 +7,6 @@ import { v4 as uuidv4 } from "uuid";
 
 export default function List({ dataFromMyParent, idOnDelete, sendBack }) {
   const [items, setItems] = useState(dataFromMyParent);
-
   const toggleCompletion = (id) => {
     const itemsCopy = [...items];
 
