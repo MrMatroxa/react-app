@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./List.module.css";
 import ListItem from "./ListItem";
 import Form from "./Form";
@@ -57,6 +57,7 @@ export default function List({ dataFromMyParent, idOnDelete, sendBack }) {
 
   return (
     <div className={styles.listContainer}>
+      <Form addItem={addNewItem} />
       {items.map((item) => (
         <ListItem
           key={item.id}
