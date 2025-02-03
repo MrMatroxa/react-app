@@ -9,6 +9,7 @@
 .listItem img {
     width: 1.5em;
     margin-right: 1em;
+    cursor: pointer;
 }
 
 .listItem button {
