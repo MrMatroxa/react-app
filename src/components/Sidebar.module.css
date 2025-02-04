@@ -1,5 +1,4 @@
   .sidebar {
-
     position: sticky;
     top: 1rem;
     margin: 0.5em;
@@ -8,13 +7,12 @@
   
   .sidenav {
     width: 8em;
-
     z-index: 1;
     top: 7rem;
     left: 1rem;
     background: #eee;
     overflow-x: hidden;
-    padding: 8px 0;
+    padding: 1em 0;
   }
   
   .sidenav a {
