@@ -8,7 +8,7 @@ import ItemDetailsPage from "./components/ItemDetailsPage";
 import NotFoundPage from "./components/NotFoundPage";
 import AboutPage from "./components/AboutPage";
 import data from "./assets/data.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [dataCopy, setDataCopy] = useState(data);
@@ -17,6 +17,22 @@ function App() {
     setDataCopy((prevState) => {
       return prevState.filter((eachEl) => eachEl.id !== id);
     });
+  };
+
+  const toggleCompletion = (id) => {
+    const itemsCopy = [...dataCopy];
+    const findIndex = dataCopy.findIndex((eachEl) => {
+      return eachEl.id === id;
+    });
+
+    if (itemsCopy[findIndex].completed) {
+      itemsCopy[findIndex].completed = false;
+    } else {
+      itemsCopy[findIndex].completed = true;
+    }
+
+    setDataCopy(itemsCopy);
+    // sendBack(itemsCopy);
   };
 
   return (
@@ -32,12 +48,18 @@ function App() {
                 dataCopy={dataCopy}
                 setDataCopy={setDataCopy}
                 idOnDelete={handleDelete}
+                toggleCompletion={toggleCompletion}
               />
             }
           />
           <Route
             path="/item/:id"
-            element={<ItemDetailsPage dataFromMyParent={dataCopy} />}
+            element={
+              <ItemDetailsPage
+                dataFromMyParent={dataCopy}
+                toggleCompletion={toggleCompletion}
+              />
+            }
           />
           <Route path="/about" element={<AboutPage />} />
           <Route path="*" element={<NotFoundPage />} />

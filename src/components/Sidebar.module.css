@@ -1,9 +1,17 @@
+  .sidebar {
+
+    position: sticky;
+    top: 1rem;
+    margin: 0.5em;
+    width: 10%;
+  }
+  
   .sidenav {
-    width: 130px;
-    position: fixed;
+    width: 8em;
+
     z-index: 1;
-    top: 110px;
-    left: 10px;
+    top: 7rem;
+    left: 1rem;
     background: #eee;
     overflow-x: hidden;
     padding: 8px 0;

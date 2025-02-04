@@ -1,4 +1,22 @@
 .main-content {
     margin-left: 9em; /* Same width as the sidebar */
     padding: 0.5em 1em;
+    flex-grow: 1;
+    padding-bottom: 4rem; /* Add padding equal to the footer height */
+    position: relative;
+    top: -8em;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }

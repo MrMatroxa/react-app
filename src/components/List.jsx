@@ -5,23 +5,23 @@ import Form from "./Form";
 
 import { v4 as uuidv4 } from "uuid";
 
-export default function List({ dataCopy, setDataCopy, idOnDelete }) {
+export default function List({ dataCopy, setDataCopy, idOnDelete, toggleCompletion }) {
   // const [items, setItems] = useState(dataCopy)
-  const toggleCompletion = (id) => {
-    const itemsCopy = [...dataCopy];
-    const findIndex = dataCopy.findIndex((eachEl) => {
-      return eachEl.id === id;
-    });
+  // const toggleCompletion = (id) => {
+  //   const itemsCopy = [...dataCopy];
+  //   const findIndex = dataCopy.findIndex((eachEl) => {
+  //     return eachEl.id === id;
+  //   });
 
-    if (itemsCopy[findIndex].completed) {
-      itemsCopy[findIndex].completed = false;
-    } else {
-      itemsCopy[findIndex].completed = true;
-    }
+  //   if (itemsCopy[findIndex].completed) {
+  //     itemsCopy[findIndex].completed = false;
+  //   } else {
+  //     itemsCopy[findIndex].completed = true;
+  //   }
 
-    setDataCopy(itemsCopy);
-    // sendBack(itemsCopy);
-  };
+  //   setDataCopy(itemsCopy);
+  //   // sendBack(itemsCopy);
+  // };
 
   const addNewItem = (newItem) => {
     const updatedItems = [...dataCopy, { id: uuidv4(), ...newItem }];
