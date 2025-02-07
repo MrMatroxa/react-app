@@ -1,19 +1,15 @@
-import React from "react";
 import { Link, useParams } from "react-router-dom";
 import yes from "../assets/check_mark.png";
-import no from "../assets/x.png"; 
-import {useState} from "react";
+import no from "../assets/x.png";
 
 import styles from "./ItemDetailsPage.module.css";
+import useToDosContext from "../context/useToDosContext";
 
-export default function ItemDetailsPage({dataFromMyParent, toggleCompletion}) {
+export default function ItemDetailsPage() {
+  const { toDos, toggleCompletion } = useToDosContext();
+
   const { id } = useParams();
-  const item = dataFromMyParent.find((item) => item.id === id);
-
-
-  // const trueFalseToggle = () => {
-  //   setCompleted(prevCompleted => !prevCompleted)
-  // };
+  const item = toDos.find((item) => item.id === id);
 
   if (!item) {
     return <div>Item not found</div>;
@@ -35,11 +31,10 @@ export default function ItemDetailsPage({dataFromMyParent, toggleCompletion}) {
           <img
             src={item.completed ? yes : no}
             alt={item.completed ? "Completed" : "Not Completed"}
-            // onClick={trueFalseToggle}
             onClick={() => toggleCompletion(item.id)}
           />
           <Link to="/">
-          <button>Back</button>
+            <button>Back</button>
           </Link>
         </div>
       </div>

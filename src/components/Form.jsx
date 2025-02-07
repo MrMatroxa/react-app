@@ -1,7 +1,11 @@
+import useToDosContext from "../context/useToDosContext";
 import styles from "./Form.module.css";
 import { useState } from "react";
 
-export default function Form({ addItem }) {
+export default function Form() {
+
+  const { addNewToDo } = useToDosContext();
+
   const [task, setTask] = useState("");
   const [completed, setCompleted] = useState(false);
 
@@ -18,7 +22,7 @@ export default function Form({ addItem }) {
       completed,
     };
 
-    addItem(newTask);
+    addNewToDo(newTask);
 
     setTask("");
   };
